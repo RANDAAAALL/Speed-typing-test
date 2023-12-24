@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+:root {
+  --background-color: #0A0C20;
+  --background-hover-color: #2a2d4b;
+  --background-loader-color: rgba(42, 45, 75, 0.9);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
+}
+body {
+  height: 100vh;
+  width: 100%;
+  background-color: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body.overflow {
+  overflow: hidden;
+}
+.landing-page-container {
+  position: relative;
+  font-family: Roboto mono;
+  color: white;
+  text-align: center;
+}
+.title {
+  font-size: 20px;
+}
+.btn {
+  cursor: pointer;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+.btn:hover {
+  background-color: var(--background-hover-color);
+}
+.loader-container {
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-loader-color);
+  z-index: 1000;
+  display: none;
+}
+.loader{
+  position: absolute;
+  border: 12px solid red;
+  border-top: 12px solid blue;
+  top: 45%;
+  left: 47.5%;
+  transform: translate(-50%, -50%);
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  animation: spinner 2s linear infinite;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

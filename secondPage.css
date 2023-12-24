@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+:root {
+  --background-color: hsl(234, 30%, 12%);
+  --background-theme: #191b43;
+  --background-overlay: #292c47;
+  --background-circle: #282839;
+  --background-loader-color: rgba(42, 45, 75, 0.9);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: gray;
+  font-family: 'Roboto Mono', monospace;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  background-color: var(--background-color);
+  transition: .5s ease;
+}
+body.active {
+  background-color: var(--background-theme);
+}
+
+body.hideOverflow{
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px 0px;
+}
+
+.h-title {
+  font-size: 21px;
+  cursor: default;
+}
+
+.overlay {
+  position: relative;
+  border: 3px solid var(--background-overlay);
+  height: 36px;
+  width: 80px;
+  border-radius: 20px;
+}
+
+.circle {
+  position: absolute;
+  background-color: var(--background-circle);
+  height: 25px;
+  width: 25px;
+  cursor: pointer;
+  border-radius: 50%;
+  top: 50%;
+  left: 12%;
+  transform: translate(-12%, -50%);
+  transition: .5s ease;
+}
+
+.circle.slide {
+  left: 63%;
+}
+
+.body-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  flex-direction: column;
+  padding: 5px 71px;
+}
+
+.box-container {
+  margin-top: 46px;
+  text-align: justify;
+  line-height: 1.5em;
+}
+
+.lower-container {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  place-items: center;
+}
+
+.timer,
+.mistakes,
+.wpm,
+.cpm {
+  text-align: center;
+}
+
+.again-btn {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  margin-top: 20px;
+}
+
+.btn {
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--background-circle);
+}
+
+.btn:hover {
+  background-color: #424569;
+  border-radius: 5px;
+}
+
+span.correct {
+  color: green;
+}
+
+span.incorrect {
+  color: red;
+}
+
+input {
+  opacity: 0;
+}
+
+.modal-container {
+  left: 50%;
+  top: -260px;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  height: 65vh;
+  width: 80vw;
+  max-width: 400px; 
+  background-color: rgb(14, 14, 30);
+  border-radius: 10px;
+  transition: top .3s ease;
+  opacity: 0;
+}
+
+.modal-container.active {
+  top: 50%;
+  opacity: 1;
+}
+
+.m-btns > button.active{
+  cursor: default;
+}
+
+.contents-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 5%;
+  height: 60vh;
+}
+
+.m-title {
+  font-size: 4vw;
+}
+
+.m-btns {
+  margin-top: 10%;
+  display: flex;
+  gap: 10px;
+}
+
+.m-btn1 {
+  padding: 2px 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--background-circle);
+  cursor: pointer;
+}
+
+.m-btn2{
+  padding: 2px 40px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--background-circle);
+  cursor: pointer;
+}
+
+.m-btn1:hover,
+.m-btn2:hover {
+  background-color: rgb(40, 40, 99);
+}
+
+.contents-container > button {
+  position: absolute;
+  bottom: 0;
+  cursor: pointer;
+  border: none;
+  padding: 5px;
+}
+
+.contents-container > button:hover {
+  background-color: #424569;
+  border-radius: 5px;
+}
+
+
+.loader-container {
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-loader-color);
+  z-index: 1000;
+  display: none;
+}
+.loader{
+  position: absolute;
+  border: 12px solid red;
+  border-top: 12px solid blue;
+  top: 45%;
+  left: 47.5%;
+  transform: translate(-50%, -50%);
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  animation: spinner 2s linear infinite;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
